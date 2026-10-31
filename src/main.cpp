@@ -1,18 +1,24 @@
 #include <Arduino.h>
 
-// put function declarations here:
-int myFunction(int, int);
+void setup()
+{
+  pinMode(LED_BUILTIN, OUTPUT);
 
-void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  Serial.begin(115200);
+
+  // Wait briefly for serial connection
+  delay(1000);
+
+  Serial.println("Feather M0 LoRaWAN starting...");
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-}
+void loop()
+{
+  digitalWrite(LED_BUILTIN, HIGH);
+  Serial.println("LED ON");
+  delay(5000);
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  digitalWrite(LED_BUILTIN, LOW);
+  Serial.println("LED OFF");
+  delay(5000);
 }
