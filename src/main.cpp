@@ -1,24 +1,14 @@
 #include <Arduino.h>
+#include "application/Application.h"
+
+Application application;
 
 void setup()
 {
-  pinMode(LED_BUILTIN, OUTPUT);
-
-  Serial.begin(115200);
-
-  // Wait briefly for serial connection
-  delay(1000);
-
-  Serial.println("Feather M0 LoRaWAN starting...");
+  application.begin();
 }
 
 void loop()
 {
-  digitalWrite(LED_BUILTIN, HIGH);
-  Serial.println("LED ON");
-  delay(5000);
-
-  digitalWrite(LED_BUILTIN, LOW);
-  Serial.println("LED OFF");
-  delay(5000);
+  application.update();
 }
